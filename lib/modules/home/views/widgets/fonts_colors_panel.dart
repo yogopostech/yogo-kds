@@ -141,28 +141,28 @@ class FontsColorsPanel extends ConsumerWidget {
               const SizedBox(height: 24),
 
               // ══ ORDER TYPE ══════════════════════════════════
-              _SectionLabel('ORDER TYPE'),
-              Container(
-                decoration: _cardDecoration(t),
-                child: Column(
-                  children: List.generate(OrderType.values.length, (i) {
-                    final type = OrderType.values[i];
-                    final isLast = i == OrderType.values.length - 1;
-                    return Column(
-                      children: [
-                        _ColorRow(
-                          label: type.label,
-                          color: typeColors[type]!,
-                          onChanged: (c) => ref
-                              .read(orderTypeColorsProvider.notifier)
-                              .setColor(type, c),
-                        ),
-                        if (!isLast) Divider(height: 1, color: t.dividerColor),
-                      ],
-                    );
-                  }),
-                ),
-              ),
+              // _SectionLabel('ORDER TYPE'),
+              // Container(
+              //   decoration: _cardDecoration(t),
+              //   child: Column(
+              //     children: List.generate(OrderType.values.length, (i) {
+              //       final type = OrderType.values[i];
+              //       final isLast = i == OrderType.values.length - 1;
+              //       return Column(
+              //         children: [
+              //           _ColorRow(
+              //             label: type.label,
+              //             color: typeColors[type]!,
+              //             onChanged: (c) => ref
+              //                 .read(orderTypeColorsProvider.notifier)
+              //                 .setColor(type, c),
+              //           ),
+              //           if (!isLast) Divider(height: 1, color: t.dividerColor),
+              //         ],
+              //       );
+              //     }),
+              //   ),
+              // ),
             ],
           ),
         ),

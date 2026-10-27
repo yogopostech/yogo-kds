@@ -111,8 +111,6 @@
 //     );
 //   }
 
-
-
 //   Widget _buildContent(int selected) {
 //     switch (selected) {
 //       case 0:
@@ -121,7 +119,7 @@
 //         return const DisplayModesPanel();
 //       case 2:
 //         return const RoutingPanel();
-//          case 3: return const OrdersPanel();  
+//          case 3: return const OrdersPanel();
 //       case 4:
 //         return const TransitionTimesPanel();
 //       case 5:
@@ -143,8 +141,6 @@
 //     }
 //   }
 // }
-
-
 
 // import 'package:flutter/material.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -288,20 +284,13 @@
 //   }
 // }
 
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yogo_kds/modules/home/views/widgets/fonts_colors_panel.dart';
-import 'package:yogo_kds/modules/settings/widgets/apperance_panel.dart';
 import 'package:yogo_kds/modules/settings/widgets/display_mode_panel.dart';
 import 'package:yogo_kds/modules/settings/widgets/genaral_panel.dart';
-import 'package:yogo_kds/modules/settings/widgets/order_panel.dart';
-import 'package:yogo_kds/modules/settings/widgets/printer_panel.dart';
 import 'package:yogo_kds/modules/settings/widgets/routing_panel.dart';
-import 'package:yogo_kds/modules/settings/widgets/screen_common_panel.dart';
 import 'package:yogo_kds/modules/settings/widgets/transition_time_panel.dart';
 import '../../../providers/settings_provider.dart';
 
@@ -318,10 +307,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     (Icons.settings_outlined, 'General', 0),
     (Icons.desktop_windows_outlined, 'Display Modes', 1),
     (Icons.alt_route_rounded, 'Routing', 2),
-    (Icons.receipt_long_outlined, 'Orders', 3),
-    (Icons.timer_outlined, 'Transition Times', 4),
+    // (Icons.receipt_long_outlined, 'Orders', 3),
+    (Icons.timer_outlined, 'Transition Times', 3),
     // (Icons.palette_outlined, 'Appearance', 5),            // ← hidden
-    (Icons.text_fields_outlined, 'Fonts & Colors', 6),
+    (Icons.text_fields_outlined, 'Fonts & Colors', 4),
     // (Icons.connected_tv_outlined, 'Screen Communication', 7), // ← hidden
     // (Icons.print_outlined, 'Printers', 8),
   ];
@@ -419,30 +408,22 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     );
   }
 
-  Widget _buildContent(int selected) {
-    switch (selected) {
-      case 0:
-        return const GeneralPanel();
-      case 1:
-        return const DisplayModesPanel();
-      case 2:
-        return const RoutingPanel();
-      case 3:
-        return const OrdersPanel();
-      case 4:
-        return const TransitionTimesPanel();
-      case 5:
-        return const AppearancePanel();
-      case 6:
-        return const FontsColorsPanel();
-      case 7:
-        return const ScreenCommPanel();
-      case 8:
-        return const PrintersPanel();
-      default:
-        return const Center(
-          child: Text('Coming soon', style: TextStyle(fontSize: 16)),
-        );
-    }
+Widget _buildContent(int selected) {
+  switch (selected) {
+    case 0:
+      return const GeneralPanel();
+    case 1:
+      return const DisplayModesPanel();
+    case 2:
+      return const RoutingPanel();
+    case 3:
+      return const TransitionTimesPanel();   // ← was OrdersPanel
+    case 4:
+      return const FontsColorsPanel();       // ← was TransitionTimesPanel
+    default:
+      return const Center(
+        child: Text('Coming soon', style: TextStyle(fontSize: 16)),
+      );
   }
+}
 }
